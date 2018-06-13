@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // routes
-// app.use('/', indexRoutes);
+//app.use('/', indexRoutes);
 app.use('/api', tasksRoutes);
 
 // static files

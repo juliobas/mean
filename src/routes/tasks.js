@@ -1,6 +1,6 @@
 const router = require('express-promise-router')();
 const mongojs = require('mongojs');
-const db = mongojs('mean-tasks', ['tasks']);
+const db = mongojs('mongodb://juliobas:JulBas85@ds255740.mlab.com:55740/juliobas', ['juliobas']);
 
 // GET All tasks
 router.get('/tasks', (req, res, next) => {
