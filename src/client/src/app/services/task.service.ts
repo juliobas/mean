@@ -6,29 +6,29 @@ import { Task } from '../Task' ;
 
 @Injectable()
 export class TaskService {
-  domain: string = 'http://localhost:3000';
-  // domain: string = 'www.mydomainapi.com/';
+  //domain: string = 'http://localhost:3000';
+  domain: string = 'https://juliobas-mean.herokuapp.com';
 
   constructor(private http: HttpClient) {
   }
   
   getTasks() {
-    return this.http.get<Task[]>('/api/tasks')
+    return this.http.get<Task[]>(`${this.domain}/api/tasks`)
       .map(res => res);
   }
  
   addTask(newTask: Task) {
-    return this.http.post<Task>('/api/tasks', newTask)
+    return this.http.post<Task>(`${this.domain}/api/tasks`, newTask)
       .map(res => res);
   }
 
   deleteTask(id) {
-    return this.http.delete<Task>(`/api/tasks/${id}`)
+    return this.http.delete<Task>(`${this.domain}/api/tasks/${id}`)
       .map(res => res);
   }
 
   updateTask(newTask) {
-    return this.http.put<Task>(`/api/tasks/${newTask._id}`, newTask)
+    return this.http.put<Task>(`${this.domain}/api/tasks/${newTask._id}`, newTask)
       .map(res => res)
   }
 }
